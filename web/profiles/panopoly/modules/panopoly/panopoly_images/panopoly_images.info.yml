@@ -1,0 +1,14 @@
+type: module
+name: 'Panopoly Images'
+description: 'Provides some standard responsive image styles.'
+# core: 8.x
+package: Panopoly
+dependencies:
+  - image
+  - responsive_image
+
+# Information added by Drupal.org packaging script on 2019-06-28
+version: '8.x-2.0-alpha15'
+core: '8.x'
+project: 'panopoly'
+datestamp: 1561680364

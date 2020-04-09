@@ -1,0 +1,16 @@
+bundle: panopoly
+excluded:
+  - media.settings
+  - entity_embed.settings
+  - embed.settings
+  - entity_browser.browser.media_entity_browser
+  - image.style.media_entity_browser_thumbnail
+  - views.view.media_entity_browser
+  - embed.button.media_entity_embed
+required:
+  - core.entity_form_mode.media.entity_browser
+  - core.entity_view_mode.media.teaser
+  - entity_browser.browser.panopoly_media_field_media_browser
+  - field.storage.media.field_panopoly_media_description
+  - field.storage.media.field_panopoly_media_tags
+  - taxonomy.vocabulary.panopoly_media_tags

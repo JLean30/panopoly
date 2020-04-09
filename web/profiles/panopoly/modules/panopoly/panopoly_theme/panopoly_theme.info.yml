@@ -1,0 +1,13 @@
+type: module
+name: 'Panopoly Theme'
+description: 'Helps with theming and provides many layouts.'
+# core: 8.x
+package: Panopoly
+dependencies:
+  - radix_layouts
+
+# Information added by Drupal.org packaging script on 2019-06-28
+version: '8.x-2.0-alpha15'
+core: '8.x'
+project: 'panopoly'
+datestamp: 1561680364

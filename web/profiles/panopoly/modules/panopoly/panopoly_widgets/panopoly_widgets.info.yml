@@ -1,0 +1,24 @@
+type: module
+name: 'Panopoly Widgets'
+description: 'A collection of generic widgets.'
+# core: 8.x
+package: Panopoly
+dependencies:
+  - block_content
+  - ctools_views
+  - field
+  - file
+  - image
+  - link
+  - node
+  - panopoly_core
+  - panopoly_images
+  - text
+  - user
+  - views
+
+# Information added by Drupal.org packaging script on 2019-06-28
+version: '8.x-2.0-alpha15'
+core: '8.x'
+project: 'panopoly'
+datestamp: 1561680364

@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall hooks.
+ */
+
+use Drupal\panopoly\Installer\Form\PanopolyDemoInstallerForm;
+use Drupal\user\Entity\User;
+use Drupal\shortcut\Entity\Shortcut;
+
+/**
+ * Implements hook_install_tasks().
+ */
+function panopoly_install_tasks(&$install_tasks) {
+  $tasks = [];
+
+  // Add a task to install demo content.
+  $tasks[PanopolyDemoInstallerForm::class] = [
+    'display_name' => t('Install demo content'),
+    'type' => 'form',
+  ];
+
+  // Add the Panopoly theme selection to the installation process
+  module_load_include('inc', 'panopoly_theme', 'panopoly_theme.profile');
+  $tasks += panopoly_theme_profile_theme_selection_install_task($install_state);
+
+  return $tasks;
+}
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function panopoly_install() {
+  // Assign user 1 the "administrator" role.
+  $user = User::load(1);
+  $user->roles[] = 'administrator';
+  $user->save();
+
+  // We install some menu links, so we have to rebuild the router, to ensure the
+  // menu links are valid.
+  \Drupal::service('router.builder')->rebuildIfNeeded();
+
+  // Populate the default shortcut set.
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('Add content'),
+    'weight' => -20,
+    'link' => ['uri' => 'internal:/node/add'],
+  ]);
+  $shortcut->save();
+
+  $shortcut = Shortcut::create([
+    'shortcut_set' => 'default',
+    'title' => t('All content'),
+    'weight' => -19,
+    'link' => ['uri' => 'internal:/admin/content'],
+  ]);
+  $shortcut->save();
+}

@@ -1,0 +1,28 @@
+name: 'Panopoly Test'
+description: 'Provides configuration and functionality for use in the Panopoly automated tests.'
+type: module
+# core: 8.x
+package: Panopoly
+hidden: true
+dependencies:
+  - field
+  - image
+  - layout_builder
+  - menu_ui
+  - node
+  - panopoly_core
+  - panopoly_images
+  - panopoly_pages
+  - panopoly_theme
+  - path
+  - pathauto
+  - radix_layouts
+  - system
+  - text
+  - user
+
+# Information added by Drupal.org packaging script on 2019-06-28
+version: '8.x-2.0-alpha15'
+core: '8.x'
+project: 'panopoly'
+datestamp: 1561680364
